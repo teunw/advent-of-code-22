@@ -1,12 +1,15 @@
 package days
 
+import chunkBy
+
 class Day1 : Day(1) {
 
-    private fun getCalories(): List<Int> =
-        inputString
-            .split(System.lineSeparator() + System.lineSeparator())
-            .map { it.split('\n').sumOf { line -> line.toInt() } }
+    private fun getCalories(): List<Int> {
+        return inputList
+            .chunkBy("")
+            .map { it.sumOf { line -> line.toInt() } }
             .sortedDescending()
+    }
 
     override fun partOne() = this.getCalories().first()
 
