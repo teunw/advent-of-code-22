@@ -4,7 +4,7 @@ class Day1 : Day(1) {
 
     private fun getCalories(): List<Int> =
         inputString
-            .split("\n\n")
+            .split(System.lineSeparator() + System.lineSeparator())
             .map { it.split('\n').sumOf { line -> line.toInt() } }
             .sortedDescending()
 
